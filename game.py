@@ -1,7 +1,6 @@
 import os
 import random
 
-from matplotlib import lines
 from graphics import *
 
 dirname = os.path.dirname(__file__)
@@ -27,7 +26,7 @@ for i in range(6):
         rectB = Point(30+(j*90), ((i+1)*90)+20)
         rect = Rectangle(rectA, rectB)
         letter = Text(Point(xPos, yPos), guess[j])
-        letter.setSize(82)
+        letter.setSize(72)
         
         if guess[j] == word[j]:
             rect.setFill("green")
