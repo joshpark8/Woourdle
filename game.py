@@ -5,7 +5,7 @@ from matplotlib import lines
 from graphics import *
 
 dirname = os.path.dirname(__file__)
-n = random.randint(0, 2612)
+n = random.randint(0, 2314)
 
 with open(f"{dirname}/words.txt") as f:
     lines = sorted(set(f.readlines()))
@@ -15,11 +15,18 @@ with open(f"{dirname}/words.txt") as f:
     word = lines.pop(n)
 
 word = [char for char in word]
-window = GraphWin("Wurdle", 500, 600)
-
+window = GraphWin("Woourdle", 500, 600)
 for i in range(6):
+    guess = ""
     guess = [char for char in input("guess: ")]
-    
+    while len(guess) != 5:
+        guess = [char for char in input("Your guess must be 5 letters!: ")]
+    green = ["","","","",""]
+    yellow = []
+    for k in range(len(word)):
+        if guess[k] == word[k]:
+            green[k] = word[k]
+            # print(green)
     for j in range(len(word)):
         xPos = 70 + (j * 90)
         yPos = 70 + (i * 90)
@@ -27,14 +34,18 @@ for i in range(6):
         rectB = Point(30+(j*90), ((i+1)*90)+20)
         rect = Rectangle(rectA, rectB)
         letter = Text(Point(xPos, yPos), guess[j])
-        letter.setSize(82)
+        letter.setSize(72)
         
         if guess[j] == word[j]:
             rect.setFill("green")
-        elif guess[j] in word:
+            # print("GREEN " + word[j])
+        elif guess[j] in word and guess[j] not in green and guess[j] not in yellow:
             rect.setFill("yellow")
+            yellow.append(guess[j])
+            # print("YELLOW " + word[j])
         else:
             rect.setFill("grey")
+            # print("GREY " + word[j])
         rect.draw(window)
         letter.draw(window)
 
