@@ -1,7 +1,6 @@
 import os
 import random
 
-from matplotlib import lines
 from graphics import *
 
 dirname = os.path.dirname(__file__)
