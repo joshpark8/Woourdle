@@ -4,10 +4,11 @@ import random
 
 from graphics import *
 
-green_square = "\N{large green square}"
-black_square = "\N{black large square}"
-yellowsquare = "\N{large yellow square}"
-print(green_square + black_square + yellowsquare)
+# green_square = "\N{large green square}"
+# black_square = "\N{black large square}"
+# yellowsquare = "\N{large yellow square}"
+# print(green_square + black_square + yellowsquare)
+
 def game(window):
     dirname = os.path.dirname(__file__)
     n = random.randint(0, 2314)
