@@ -1,4 +1,3 @@
-from multiprocessing.connection import answer_challenge
 import os
 import random
 
